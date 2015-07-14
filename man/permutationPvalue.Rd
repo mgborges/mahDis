@@ -5,9 +5,9 @@
 \alias{permutationp}
 \alias{permutationPV}
 \alias{permutationpv}
-\title{Permutation between groups' p-value}
+\title{Permutation Between Groups' p-Value}
 \description{
-The p-values are calculated as the ratio of the random distances higher than the real distance.
+We determine the p-value as the proportion of observations, under the null hypothesis, that are at least as extreme as the observed statistic.
 }
 \usage{
 permutationPvalue(replication, data, group)
@@ -15,8 +15,7 @@ permutationPvalue(replication, data, group)
 \arguments{
   \item{replication}{is a integer specifying the number of permutations to perform between the groups in order to obtain p-values.}
   
-  \item{data}{is a matrix containing point positions in a 2D projection.  The matrix has
-two columns.  Each row of the matrix gives one point.}
+  \item{data}{is a matrix containing point positions.  The matrix has two columns. Each row of the matrix gives one point.}
 
   \item{group}{is a vector specifying the group each point belongs to. Notice that this method calculates distances of two groups by a time.}
   

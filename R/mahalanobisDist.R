@@ -1,5 +1,3 @@
-library(matrixStats)
-
 mahDis <- function(data, group) {
   gps <- unique(group)
   

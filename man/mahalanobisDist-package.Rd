@@ -3,17 +3,17 @@
 \alias{mahalanobisDist}
 \docType{package}
 \title{
-Mahalanobis distance between samples with p-values by group permutation
+Mahalanobis Distance Between Samples with p-Values by Group Permutation
 }
 \description{
-This comparison method combines multidimensional scaling, MDS, with permutation tests. Our strategy uses MDS to project the data onto lower dimensions, while preserving the distance between the data points. Using these projections, we determine the statistic of interest: Mahalanobis distance between the groups. The method empirically estimates the null distribution of the distances between the groups using permutation. The strategy uses this distribution to assess the evidences of differences between the groups.
+This comparison method combines multidimensional scaling (MDS) data with permutation tests. Our strategy uses MDS to project the data onto lower dimensions, while preserving the distance between the data points. Using these projections, we determine the Mahalanobis distance between the groups and estimates the null distribution of the distances between the groups using permutation. The strategy uses this distribution to assess the evidences of differences between the groups
 }
 
 \details{
 \tabular{ll}{
 Package: \tab mahalanobisDist\cr
 Type: \tab Package\cr
-Version: \tab 0.1\cr
+Version: \tab 0.99.2\cr
 Date: \tab 2015-07-06\cr
 }
 
@@ -33,7 +33,8 @@ Mahalanobis, P.C.: On the generalized distance in statistics. Proceedings of the
 \examples{
 # Creation of our data and groups
 observations <- 60
-data <- rbind(matrix(rexp(observations/2, rate=1), ncol = 2), matrix(rexp(observations/2, rate=0.5), ncol = 2))
+data <- rbind(matrix(rexp(observations/2, rate=1), ncol = 2), 
+              matrix(rexp(observations/2, rate=0.5), ncol = 2))
 group <- c(rep("A", observations/4), rep("B", observations/4))
 
 # Number of the desired replications to calculate p-values
@@ -44,7 +45,7 @@ realDist <- mahDis(data, group)
 pvalue <- permutationPvalue(replication, data, group)
 realDist; pvalue
 
-# The p-values are calculated as the ratio of the ramdom distances higher than the real distance
+# The p-values estimated by the null distribution of the distances between the groups using permutation
 distVector <- replicate(replication, {mahDis (data, sample(group))})
 hist(distVector)
 abline(v=realDist, col=2)

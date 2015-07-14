@@ -1,0 +1,67 @@
+---
+title: "mahalanobisDist"
+author: "Murilo Guimaraes Borges and Benilton de Sa Carvalho"
+date: "14/07/2015"
+output: pdf_document
+vignette: >
+  %\VignetteIndexEntry{mahalanobisDist}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+Mahalanobis Distance Between Samples with p-Values by Group Permutation
+===============================================
+Description:
+--------------
+This comparison method combines multidimensional scaling (MDS) data with permutation tests. Our strategy uses MDS to project the data onto lower dimensions, while preserving the distance between the data points. Using these projections, we determine the Mahalanobis distance between the groups and estimates the null distribution of the distances between the groups using permutation. The strategy uses this distribution to assess the evidences of differences between the groups.
+
+
+Details:
+---------
+Package: mahalanobisDist
+
+Type: Package
+
+Version: 0.99.2
+
+Date: 2015-07-06
+
+Authors:
+---------
+
+Murilo Guimaraes Borges and Benilton de Sa Carvalho.
+
+Maintainer: Murilo G. Borges, murilogborges@hotmail.com.
+
+References:
+---------------
+Mahalanobis, P.C.: On the generalized distance in statistics. Proceedings of the National Institute of Sciences (Calcutta) 2 49-55 (1936).
+
+Examples:
+-----------
+```{r}
+library(mahalanobisDist)
+
+# Creation of our data and groups
+observations <- 60
+data <- rbind(matrix(rexp(observations/2, rate=1), ncol = 2), 
+              matrix(rexp(observations/2, rate=0.5), ncol = 2))
+group <- c(rep("A", observations/4), rep("B", observations/4))
+```
+
+```{r}
+# Number of the desired replications to calculate p-values
+replication <- 10000
+
+# Function in use
+realDist <- mahDis(data, group)
+pvalue <- permutationPvalue(replication, data, group)
+realDist; pvalue
+```
+
+```{r}
+# The p-values estimated by the null distribution of the distances 
+# between the groups using permutation
+distVector <- replicate(replication, {mahDis (data, sample(group))})
+hist(distVector)
+abline(v=realDist, col=2)
+```

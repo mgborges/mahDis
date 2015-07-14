@@ -1,10 +1,12 @@
 Package: mahalanobisDist
 Type: Package
 Title: Mahalanobis distance between samples with p-values by group permutation
-Version: 0.1
+Version: 0.99.2
 Date: 2015-07-06
 Author: Murilo Guimaraes Borges and Benilton de Sa Carvalho
-Maintainer: Murilo Guimarães Borges <murilogborges@hotmail.com>
-Description: This comparison method combines multidimensional scaling (MDS) with permutation tests. Our strategy uses MDS to project the data onto lower dimensions, while preserving the distance between the data points. Using these projections, we determine the statistic of interest: Mahalanobis distance between the groups. The method empirically estimates the null distribution of the distances between the groups using permutation. The strategy uses this distribution to assess the evidences of differences between the groups.
+Maintainer: Murilo Guimaraes Borges <murilogborges@hotmail.com>
+Description: This comparison method combines multidimensional scaling (MDS) data with permutation tests. Our strategy uses MDS to project the data onto lower dimensions, while preserving the distance between the data points. Using these projections, we determine the Mahalanobis distance between the groups and estimates the null distribution of the distances between the groups using permutation. The strategy uses this distribution to assess the evidences of differences between the groups.
 Depends: matrixStats (>= 0.14.2)
 License: GPL-3
+Suggests: knitr
+VignetteBuilder: knitr

@@ -4,7 +4,7 @@
 \alias{mahalanobisgroups}
 \alias{mahdis}
 \alias{mahDIS}
-\title{Mahalanobis distance between two groups}
+\title{Mahalanobis Distance Between Two Groups}
 \description{
 Calculates Mahalanobis distance between the groups centroids median position.
 }
@@ -12,8 +12,7 @@ Calculates Mahalanobis distance between the groups centroids median position.
 mahDis(data, group)
 }
 \arguments{
-  \item{data}{is a matrix containing point positions in a 2D projection.  The matrix has
-two columns.  Each row of the matrix gives one point.}
+  \item{data}{is a matrix containing point positions.  The matrix has two columns. Each row of the matrix gives one point.}
 
   \item{group}{is a vector specifying the group each point belongs to. Notice that this method calculates distances of two groups by a time.}
 }
