@@ -1,0 +1,2 @@
+#' @importFrom matrixStats colMedians 
+NULL

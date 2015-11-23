@@ -1,3 +1,4 @@
+#' @export
 mahDis <- function(data, group) {
   gps <- unique(group)
   
@@ -23,7 +24,7 @@ mahDis <- function(data, group) {
   
   as.numeric(t(v) %*% solve(totalVar) %*% v)
 }
-
+#' @export
 permutationPvalue <- function(replication, data, group) {
   distVector <- replicate(replication, {mahDis (data, sample(group))})
   realDist <- mahDis (data, group)
